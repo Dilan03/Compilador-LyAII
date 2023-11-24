@@ -10,7 +10,7 @@ import compilerTools.Token;
         return new Token(lexeme, lexicalComp, line+1, column+1);
     }
 %}
-/* Variables básicas de comentarios y espacios */
+/* Variables básicas de comentarios y espacios testest*/
 TerminadorDeLinea = \r|\n|\r\n
 EntradaDeCaracter = [^\r\n]
 EspacioEnBlanco = {TerminadorDeLinea} | [ \t\f]
