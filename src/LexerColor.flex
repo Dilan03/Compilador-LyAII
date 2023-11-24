@@ -35,4 +35,38 @@ Numero = 0 | [1-9][0-9]*
 {Comentario} { return textColor(yychar, yylength(), new Color(146, 146, 146)); }
 {EspacioEnBlanco} { /*Ignorar*/ }
 
+/*Identificador*/
+\VAR_{Identificador} { return textColor(yychar, yylength(), Color.orange); }
+
+/*Tipos de dato*/
+ente | real | bolo { return textColor(yychar, yylength(), Color.red); }
+
+/*Entero*/
+{Numero} { return textColor(yychar, yylength(), Color.cyan); }
+
+/*Real*/
+{Numero}"."{Numero} { return textColor(yychar, yylength(), Color.cyan); }
+
+/*Boleano*/
+"FAL"|"VER" { return textColor(yychar, yylength(), Color.green); }
+
+/*Operadores de agrupacion*/
+"(" | "(" | "}" | "}" { return textColor(yychar, yylength(), Color.blue); }
+
+/*Signos de puntuacion*/
+"," { /*Ignorar*/ }
+";" { /*Ignorar*/ }
+
+/*Operador de asignacion*/
+--> { return textColor(yychar, yylength(), Color.blue); }
+
+/*Estructura if*/
+ysisi | ysino { return textColor(yychar, yylength(), Color.magenta); }
+
+/* Operadores logicos */ 
+"Y" | "O" { return textColor(yychar, yylength(), Color.orange); }
+
+/*Final*/
+final { return textColor(yychar, yylength(), Color.red); }
+
 . { /* Ignorar */ }
